@@ -1,0 +1,15 @@
+sudo: false
+language: python
+
+env:
+  matrix:
+    - >-
+    PACKAGE_DIR=stackanetes
+    - >-
+    PACKAGE_DIR=mariadb
+
+install:
+  - pip install kpm --pre
+
+script:
+  - kpm jsonnet $PACKAGE_DIR/manifest.jsonnet
